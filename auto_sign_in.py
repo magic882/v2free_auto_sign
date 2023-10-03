@@ -44,7 +44,8 @@ class CheckIn(object):
         }
         response = self.client.post(self.sign_url, headers=headers)
 
-        logging.info(self.masked_username + "\t" + response.json()["msg"])
+        response.encoding = "utf-8"
+        logging.info(self.masked_username + "\t" + response.text)
 
 
 if __name__ == "__main__":
